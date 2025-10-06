@@ -1,17 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Home from './pages/Home'
-import Header from './components/header'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/header";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Products from "./pages/Products";
+import Gallery from "./pages/Gallery";
+import Contact from "./pages/Contact";
+import WhatsApp from "./components/Whatsapp_Button";
 
-function App() {
+export default function App() {
   return (
-    <>
+    <Router>
       <Header />
-      <Home />
-    </>
-  )
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </main>
+      <WhatsApp />
+    </Router>
+  );
 }
-
-export default App
